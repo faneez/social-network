@@ -1,0 +1,23 @@
+.profileWrapper {
+	background-color: #e1e8f0;
+	height: 100vh;
+}
+.container {
+	max-width: 90%;
+	margin: auto;
+}
+.profileContainer {
+	display: flex;
+}
+.leftbar {
+	flex: 0.7;
+	background-color: #e1e8f0 !important;
+}
+.userProfile {
+	margin-right: 30px;
+	flex: 3;
+}
+.toDo {
+	margin-top: 50px;
+	margin-right: 50px;
+}

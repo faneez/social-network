@@ -1,0 +1,139 @@
+.wrapper-register {
+  background-image: url('../components/Images/login-bg.jpg');
+
+  background-position: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* margin:20vh auto;
+    height:60vh;
+    width:60vw;
+    max-width:100%; */
+
+}
+
+.register-small {
+  padding: .5rem;
+  color: white;
+}
+
+.register-small a {
+  color: white;
+}
+
+.register-container {
+  margin-top: 3rem;
+  background: #144A78;
+  padding: .1rem 6rem;
+  border-radius: 10px;
+
+}
+
+.register-header {
+  font-size: 2rem;
+  text-align: center;
+  color: white;
+
+}
+
+.register-subheader {
+  font-size: 1.4rem;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+}
+
+.register-dataform {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.register-dataformemail {
+  padding: .3rem;
+  margin: .5rem 0;
+  border-radius: 3px;
+  outline: none;
+  height: 2.5rem;
+  width: 130%;
+  border: 2px solid var(--border-color);
+  color: black;
+  background-color: white;
+}
+
+.passwordInp {
+  position: relative;
+}
+
+.register-dataformpass {
+
+  padding: .3rem;
+  margin: .5rem 0;
+  height: 2.5rem;
+  width: 130%;
+  border-radius: 3px;
+  outline: none;
+  border: 2px solid var(--border-color);
+  color: black;
+  background-color: white
+}
+
+.register-dataformbtn {
+
+  padding: .3rem;
+  border-radius: 3px;
+  border: 2px solid var(--border-color);
+  background-color: white;
+  margin: .5rem auto;
+  width: 130%;
+  height: 2.5rem;
+  outline: none;
+}
+
+.register-dataformselect {
+
+  padding: .3rem;
+  margin: .5rem 0;
+  width: 130%;
+  border-radius: 3px;
+  outline: none;
+  border: 2px solid var(--border-color);
+  color: black;
+  height: 2.5rem;
+  background-color: white
+}
+
+.register-showpass {
+  position: absolute;
+  top: 10%;
+  right: -30%;
+  background-color: #144A78;
+  padding: 2px;
+  border-radius: 2px;
+  color: white;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.register-showcfpass {
+  position: absolute;
+  top: 10%;
+  right: -30%;
+  background-color: #144A78;
+  padding: 2px;
+  border-radius: 2px;
+  vertical-align: middle;
+  cursor: pointer;
+  color: white;
+}

@@ -1,0 +1,90 @@
+.groups {
+	background-color: #e1e8f0;
+	margin-top: 50px;
+	margin-left: 150px;
+	&-container {
+		max-width: 70%;
+	}
+	&__search-input {
+		position: relative;
+		width: 430px;
+		margin-bottom: 25px;
+		input {
+			padding: 10px;
+			outline: 1px solid #424242;
+			border-radius: 5px;
+			margin: 10px;
+			width: 100%;
+		}
+	}
+	&-main {
+		background-color: #4d4b4b;
+		border: 1px solid black;
+		border-radius: 10px;
+	}
+	&__input-img {
+		position: absolute;
+		right: 0;
+		top: 15px;
+		width: 25px;
+		height: 25px;
+	}
+}
+
+.group-item {
+	margin-left: 15px;
+	margin-bottom: 15px;
+	display: flex;
+	color: white;
+	position: relative;
+
+	&__avatar {
+		width: 80px;
+		height: 80px;
+
+		border-radius: 100%;
+		margin-right: 20px;
+		margin-bottom: 15px;
+	}
+	&__text {
+		margin-top: 10px;
+	}
+	&__name {
+		a {
+			font-weight: bold;
+			font-size: 17px;
+			color: white;
+			text-decoration: none;
+		}
+	}
+	&__description {
+		margin-top: 10px;
+		color: #d5cece;
+		max-width: 300px;
+	}
+	&__btn {
+		color: white;
+		text-decoration: none;
+		align-self: flex-start;
+		margin-top: 20px;
+		margin-left: auto;
+		margin-right: 20px;
+		padding: 10px;
+		border-radius: 10px;
+		color: black;
+		background-color: white;
+		font-size: 16px;
+	}
+
+	&::before {
+		content: "";
+		width: 90px;
+		height: 1px;
+		width: 95%;
+		margin: auto;
+		background-color: rgba(190, 180, 180, 0.3);
+		position: absolute;
+		bottom: 0px;
+		left: 7px;
+	}
+}

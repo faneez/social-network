@@ -1,0 +1,102 @@
+.userProfileContainer {
+	max-width: 900px;
+
+	margin-left: 20px;
+	margin-top: 50px;
+}
+.userMain {
+	display: flex;
+	background-color: #fff;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 20px 10px;
+	min-width: 250px;
+}
+.userImage {
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+	margin: 10px;
+}
+.userFullname {
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+.userPosition {
+	margin-bottom: 30px;
+}
+.profileBtns {
+	display: flex;
+}
+.profileBtns a {
+	text-decoration: none;
+	margin-top: 10px;
+	padding: 5px;
+	margin-bottom: 20px;
+	background-color: #007aff;
+	color: #fff;
+	border-radius: 5px;
+}
+
+.userContacts {
+	background-color: #fff;
+	margin-left: 15px;
+	min-width: 60%;
+	border-radius: 10px;
+}
+.userContactItem {
+	color: black;
+	padding: 15px;
+	font-size: 16px;
+	border-bottom: 1px solid #74808d;
+	align-self: flex-start;
+	position: relative;
+	span {
+		display: inline-block;
+		position: absolute;
+		left: 200px;
+		margin-right: auto;
+		font-size: 14px;
+		color: #74808d;
+	}
+}
+.userSkillsContainer {
+	display: flex;
+}
+
+.userSkills {
+	background-color: #fff;
+
+	width: 43.5%;
+	border-radius: 7px;
+	margin-top: 15px;
+	padding: 10px;
+	margin-right: 15px;
+}
+.item {
+	margin-bottom: 15px;
+	padding: 5px;
+	position: relative;
+}
+.fullProgress {
+	position: absolute;
+	background-color: rgba(232, 236, 239, 0.3);
+	height: 5px;
+	border-radius: 2px;
+	width: 100%;
+}
+.userProgress {
+	position: absolute;
+	background-color: #0778f2;
+	height: 5px;
+	border-radius: 2px;
+}
+.skillTitle {
+	text-align: center;
+	span {
+		color: #89f1f1;
+		font-weight: bold;
+		font-size: 18px;
+	}
+}
