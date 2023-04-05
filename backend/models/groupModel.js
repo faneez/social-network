@@ -3,19 +3,19 @@ const mongoose = require("mongoose")
 const groupSchema = new mongoose.Schema({
 	name: {
 		type: String,
-		default: "USER",
 		unique: true,
 	},
-	content: {
+	title: {
 		type: String,
-		default: "USER",
-		unique: true,
 	},
-	posts: [mongoose.Types.ObjectId, (ref = "post")],
+	description: {
+		type: String,
+	},
+	posts: [{ type: mongoose.Types.ObjectId, ref: "postGroup", default: [] }],
 	avatar: {
 		type: String,
 		default:
-			"https://crypto.ru/wp-content/plugins/q-auth/assets/img/default-user.png",
+			"https://w7.pngwing.com/pngs/210/468/png-transparent-computer-icons-blog-desktop-icon-public-relations-blue-text-pin.png",
 	},
 })
 

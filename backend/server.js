@@ -6,6 +6,7 @@ const bcrypt = require("bcrypt")
 const cookieparser = require("cookie-parser")
 const authRouter = require("./routers/authRouter.js")
 const userRouter = require("./routers/userRouter.js")
+const groupRouter = require("./routers/groupRouter.js")
 
 const app = express()
 
@@ -17,6 +18,7 @@ app.use(cookieparser())
 
 app.use("/api", authRouter)
 app.use("/api", userRouter)
+app.use("/api", groupRouter)
 
 const port = process.env.PORT || 5000
 const URL = process.env.DB_URL
