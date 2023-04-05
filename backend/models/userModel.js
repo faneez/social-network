@@ -54,7 +54,7 @@ const userSchema = new mongoose.Schema(
 				"https://crypto.ru/wp-content/plugins/q-auth/assets/img/default-user.png",
 		},
 		roles: { type: [{ type: String }], default: ["USER"] },
-		toDo: { type: Array },
+		todo: [{ type: mongoose.Types.ObjectId, ref: "todo" }],
 		story: {
 			type: String,
 			default: "",
