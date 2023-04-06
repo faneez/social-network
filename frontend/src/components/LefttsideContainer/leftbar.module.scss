@@ -4,10 +4,11 @@
 	align-self: flex-start;
 	flex: 0.75;
 	max-width: 210px;
-	margin-left: 50px;
+	margin-left: 40px;
 	background-color: #939090;
 	ul {
 		display: inline-block;
+
 		//flex-direction: column;
 	}
 	a {
@@ -15,6 +16,13 @@
 		color: white;
 		margin-bottom: 10px;
 		text-decoration: none;
+		padding: 3px 10px 0px 5px;
+		border-radius: 2px;
+		transition: 0.3s all ease-in-out;
+
+		&:hover {
+			background-color: #a6a1a1;
+		}
 
 		img {
 			width: 25px;

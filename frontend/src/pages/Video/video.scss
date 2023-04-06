@@ -1,0 +1,31 @@
+.video-container {
+	max-width: 60%;
+	margin: auto;
+}
+.video-comments {
+	margin-top: 20px;
+	input {
+		width: 60%;
+		padding: 10px;
+	}
+	button {
+		margin-left: 20px;
+		padding: 20px;
+		border-radius: 20px;
+	}
+	&-block {
+		padding: 20px;
+		display: flex;
+		&__surname {
+			color: black;
+			font-weight: bold;
+		}
+
+		&__avatar {
+			margin-right: 15px;
+			width: 35px;
+			height: 35px;
+			border-radius: 100%;
+		}
+	}
+}

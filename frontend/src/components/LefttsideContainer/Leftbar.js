@@ -36,10 +36,10 @@ const Leftbar = ({ bg, color }) => {
 					<img src={groupsImage} className={styles.icon} alt="" />
 					<li className={styles.item}>Группы</li> {/* Группы*/}
 				</Link>
-				<a href="#">
+				<Link to="/videos">
 					<img src={videosImage} className={styles.icon} alt="" />
 					<li className={styles.item}>Видео</li> {/* Видео*/}
-				</a>
+				</Link>
 				<a href="#">
 					<img src={testImage} className={styles.icon} alt="" />
 					<li className={styles.item}>Тесты</li> {/* тесты */}

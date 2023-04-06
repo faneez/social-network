@@ -1,0 +1,43 @@
+.videos {
+	&__container {
+		width: 80%;
+		margin: auto;
+		margin-top: 50px;
+	}
+	&__title {
+		text-align: center;
+		margin-bottom: 30px;
+	}
+	&__items {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+
+		gap: 30px;
+		background-color: #696565;
+		padding: 20px;
+		border-radius: 10px;
+	}
+}
+
+.category-list {
+	display: flex;
+	&__item {
+		padding: 5px 15px;
+		font-size: 17px;
+		margin-right: 20px;
+		background-color: rgb(95, 91, 91);
+		color: rgb(214, 207, 207);
+		border-radius: 10px;
+		cursor: pointer;
+		transition: 0.3s all ease-in;
+
+		&:hover {
+			background-color: rgb(31, 30, 30);
+			color: rgb(255, 255, 255);
+		}
+	}
+	.active {
+		color: white;
+		background-color: rgb(31, 30, 30);
+	}
+}

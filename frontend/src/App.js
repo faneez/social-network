@@ -12,6 +12,9 @@ import { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { refreshToken } from "./store/slices/authSlice"
 import Navbar from "./components/Navbar/Navbar"
+import Videos from "./pages/Videos/Videos"
+import Video from "./pages/Video/Video"
+import Tests from "./pages/Tests/Tests"
 
 import { useSelector } from "react-redux"
 import Loading from "./components/Loading/Loading"
@@ -37,6 +40,14 @@ function App() {
 						<Route path="/" element={auth.token ? <Home /> : <Login />} />
 						<Route path="/loading" element={<Loading />} />
 						<Route path="/register" element={<Register />} />
+						<Route
+							path="/videos"
+							element={auth.token ? <Videos /> : <Login />}
+						/>
+						<Route
+							path="/videos/:id"
+							element={auth.token ? <Video /> : <Login />}
+						/>
 						<Route path="/login" element={auth.token ? <Home /> : <Login />} />
 						<Route
 							path="/groups"
