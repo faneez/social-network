@@ -1,3 +1,15 @@
+.search-input {
+	position: relative;
+	width: 430px;
+	margin-bottom: 25px;
+	input {
+		padding: 10px;
+		outline: 1px solid #424242;
+		border-radius: 5px;
+		margin: 10px;
+		width: 100%;
+	}
+}
 .groups {
 	background-color: #e1e8f0;
 	margin-top: 50px;
@@ -17,6 +29,7 @@
 			width: 100%;
 		}
 	}
+
 	&-main {
 		background-color: #4d4b4b;
 		border: 1px solid black;

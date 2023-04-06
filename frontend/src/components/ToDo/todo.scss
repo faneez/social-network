@@ -11,9 +11,12 @@
 
 	.taskText {
 		flex: 1;
-		word-wrap: break-word;
 		font-size: 14px;
+		word-break: break-all;
 		overflow: hidden;
+	}
+	.taskTextContainer {
+		max-width: 150px;
 	}
 
 	div {

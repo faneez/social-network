@@ -6,7 +6,8 @@ const jwt = require("jsonwebtoken")
 const authCntrl = {
 	register: async (req, res) => {
 		try {
-			const { name, surname, email, password, gender, position } = req.body
+			const { name, surname, email, password, gender, position, group } =
+				req.body
 
 			const user = await Users.findOne({ email })
 			if (user) {
@@ -26,6 +27,7 @@ const authCntrl = {
 				password: passwordHash,
 				gender,
 				position,
+				group,
 			})
 
 			const access_token = createAccessToken(newUser._id, newUser.roles)

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 
 import { useDispatch, useSelector } from "react-redux"
 import { Link, useNavigate } from "react-router-dom"
+
 import { register } from "../store/slices/authSlice"
 
 import "../styles/Register.css"
@@ -10,6 +11,13 @@ const Register = () => {
 	const { auth, alert } = useSelector((state) => state)
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
+
+	useEffect(() => {
+		if (auth.token) {
+			console.log(1)
+			return navigate("/")
+		}
+	})
 
 	const initialState = {
 		name: "",
@@ -24,8 +32,16 @@ const Register = () => {
 	const [showpass, setShowpass] = useState(false)
 	const [showcfpass, setShowcfpass] = useState(false)
 	const [userData, setuserData] = useState(initialState)
-	const { name, surname, email, password, confirmPassword, gender, position } =
-		userData
+	const {
+		name,
+		surname,
+		email,
+		password,
+		confirmPassword,
+		gender,
+		position,
+		group,
+	} = userData
 
 	const handleChange = (e) => {
 		const { name, value } = e.target
@@ -133,8 +149,21 @@ const Register = () => {
 							value={position}
 							onChange={handleChange}
 						>
-							<option value="student">Студент</option>
-							<option value="teacher">Преподаватель</option>
+							<option value="Ученик">Ученик</option>
+							<option value="Преподаватель">Преподаватель</option>
+						</select>
+						<select
+							className="register-dataformselect"
+							name="group"
+							value={group}
+							onChange={handleChange}
+						>
+							<option value="Python">Python</option>
+							<option value="Мобильная разработка">
+								Мобильная разработка
+							</option>{" "}
+							<option value="VR/AR">VR/AR приложения</option>
+							<option value="Java">Java</option>
 						</select>
 						<select
 							className="register-dataformselect"
@@ -142,8 +171,8 @@ const Register = () => {
 							value={gender}
 							onChange={handleChange}
 						>
-							<option value="male">Мужчина</option>
-							<option value="female">Женщина</option>
+							<option value="Мужчина">Мужчина</option>
+							<option value="Женщина">Женщина</option>
 						</select>
 
 						<button className="register-dataformbtn" type="submit">

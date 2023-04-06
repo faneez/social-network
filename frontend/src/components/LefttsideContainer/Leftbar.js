@@ -26,12 +26,12 @@ const Leftbar = ({ bg, color }) => {
 				</a>
 				<a href="#">
 					<img src={chatsImage} className={styles.icon} alt="чат" />
-					<li className={styles.item}>Чат</li> {/* чаты*/}
+					<li className={styles.item}>Чаты</li> {/* чаты*/}
 				</a>
-				<a href="#">
+				<Link to="/users">
 					<img src={friendsImage} className={styles.icon} alt="" />
-					<li className={styles.item}>Мои друзья</li> {/* Мои друзья*/}
-				</a>
+					<li className={styles.item}>Пользователи</li> {/* Мои друзья*/}
+				</Link>
 				<Link to="/groups">
 					<img src={groupsImage} className={styles.icon} alt="" />
 					<li className={styles.item}>Группы</li> {/* Группы*/}
@@ -40,10 +40,10 @@ const Leftbar = ({ bg, color }) => {
 					<img src={videosImage} className={styles.icon} alt="" />
 					<li className={styles.item}>Видео</li> {/* Видео*/}
 				</Link>
-				<a href="#">
+				<Link to="/tests">
 					<img src={testImage} className={styles.icon} alt="" />
 					<li className={styles.item}>Тесты</li> {/* тесты */}
-				</a>
+				</Link>
 				<a href="#">
 					<img src={ratingImage} className={styles.icon} alt="" />
 					<li className={styles.item}>Рейтинг</li> {/* рейтинг */}

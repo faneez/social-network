@@ -18,7 +18,7 @@ const Navbar = () => {
 	return (
 		<div className={styles.root}>
 			<div className={styles.logoContainer}>
-				<Link to="/">
+				<Link to="/home">
 					<img className={styles.logo} src={logo} alt="" />
 				</Link>
 			</div>
@@ -55,6 +55,7 @@ const Navbar = () => {
 						className={styles.logout}
 						onClick={() => {
 							dispatch(logout())
+							navigate("/")
 						}}
 					>
 						Выйти

@@ -75,6 +75,9 @@ const UserProfile = ({ setHideToDo }) => {
 							Адрес: <span>{profile.user.address || "Адрес не указан"}</span>
 						</div>
 						<div className={styles.userContactItem}>
+							Пол: <span>{profile.user.gender || "Пол не указан"}</span>
+						</div>
+						<div className={styles.userContactItem}>
 							Рейтинг: <span>{profile.user.rating}</span>
 						</div>
 					</div>

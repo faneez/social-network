@@ -25,6 +25,7 @@ const Login = () => {
 
 	useEffect(() => {
 		if (auth.token) {
+			console.log(1)
 			navigate("/home")
 		}
 	})

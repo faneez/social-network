@@ -22,7 +22,7 @@ const Groups = () => {
 		<div className="groups">
 			<div className="groups-container">
 				<div className="groups-main">
-					<div className="groups__search-input">
+					<div className="groups__search-input search-input">
 						<input type="text" placeholder="Найти группу" />
 						<img
 							src={searchImg}

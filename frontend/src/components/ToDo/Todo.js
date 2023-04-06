@@ -135,7 +135,11 @@ const Todo = () => {
 					return (
 						<React.Fragment key={task.id}>
 							<div className="col taskBg">
-								<div className={task.status ? "done" : ""}>
+								<div
+									className={
+										task.status ? "done taskTextContainer" : "taskTextContainer"
+									}
+								>
 									<span className="taskNumber">{index + 1}</span>
 									<div className="taskText">{task.title}</div>
 								</div>

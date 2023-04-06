@@ -1,0 +1,89 @@
+.users {
+	&__title {
+		color: white;
+
+		text-align: center;
+	}
+
+	&__item {
+		img {
+			width: 80px;
+			height: 80px;
+			border-radius: 100%;
+			display: inline-block;
+			text-align: left;
+			margin-left: 10px;
+		}
+		display: flex;
+		align-items: center;
+	}
+}
+
+.users-container {
+	background-color: red;
+	background-color: rgb(63, 60, 60);
+	padding: 30px;
+	width: 80%;
+	margin: auto;
+	margin-top: 50px;
+
+	input {
+		margin-bottom: 10px;
+		margin-left: 20px;
+		&::placeholder {
+			color: black;
+		}
+		color: black;
+	}
+}
+
+.users-item {
+	position: relative;
+	padding-bottom: 10px;
+	margin-bottom: 30px;
+	div {
+		margin-right: 30px;
+		max-width: 450px;
+	}
+	&__fullname {
+		color: white;
+		margin-left: 10px;
+		font-size: 14px;
+		font-weight: bold;
+		box-sizing: content-box;
+		margin-right: 40px;
+		text-decoration: none;
+		cursor: pointer;
+		&:hover {
+			text-decoration: underline;
+			color: white;
+		}
+	}
+	&__position {
+		margin-left: 10px;
+
+		color: rgb(193, 188, 188);
+	}
+	&__message {
+		margin-left: auto;
+		margin-right: 50px;
+		text-decoration: none;
+		background-color: rgb(46, 44, 44);
+		color: white;
+		padding: 10px 20px;
+		border-radius: 3px;
+		font-size: 16px;
+		transition: all 0.3s ease-in-out;
+		&:hover {
+			background-color: rgb(50, 48, 48);
+		}
+	}
+	&::after {
+		content: "";
+		width: 80%;
+		position: absolute;
+		height: 1px;
+		background-color: rgb(93, 87, 87);
+		bottom: 0;
+	}
+}

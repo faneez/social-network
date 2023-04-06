@@ -14,7 +14,9 @@ import { refreshToken } from "./store/slices/authSlice"
 import Navbar from "./components/Navbar/Navbar"
 import Videos from "./pages/Videos/Videos"
 import Video from "./pages/Video/Video"
-import Tests from "./pages/Tests/Tests"
+import TestsPage from "./pages/Tests/TestsPage"
+import TestPage from "./pages/Test/TestPage"
+import UsersPage from "./pages/Users/UsersPage"
 
 import { useSelector } from "react-redux"
 import Loading from "./components/Loading/Loading"
@@ -39,7 +41,6 @@ function App() {
 					<Routes>
 						<Route path="/" element={auth.token ? <Home /> : <Login />} />
 						<Route path="/loading" element={<Loading />} />
-						<Route path="/register" element={<Register />} />
 						<Route
 							path="/videos"
 							element={auth.token ? <Videos /> : <Login />}
@@ -48,7 +49,18 @@ function App() {
 							path="/videos/:id"
 							element={auth.token ? <Video /> : <Login />}
 						/>
-						<Route path="/login" element={auth.token ? <Home /> : <Login />} />
+						<Route
+							path="/tests"
+							element={auth.token ? <TestsPage /> : <Login />}
+						/>
+						<Route
+							path="/tests/:id"
+							element={auth.token ? <TestPage /> : <Login />}
+						/>
+						<Route
+							path="/users"
+							element={auth.token ? <UsersPage /> : <Login />}
+						/>
 						<Route
 							path="/groups"
 							element={auth.token ? <Groups /> : <Login />}
@@ -63,6 +75,8 @@ function App() {
 							element={auth.token ? <Profile /> : <Login />}
 						/>
 						<Route path="/post/:id" element={<Post />} />
+						<Route path="/register" element={<Register />} />
+						<Route path="/login" element={<Login />} />
 						<Route path="*" element={<NotFound />} />
 					</Routes>
 				</div>
