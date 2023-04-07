@@ -9,7 +9,7 @@ const UsersItem = ({ user }) => {
 				<Link to={`/user/${user._id}`}>
 					<img
 						className="users-item__img"
-						src={profileImage}
+						src={user.avatar}
 						alt="Аватар пользователья"
 					/>
 				</Link>

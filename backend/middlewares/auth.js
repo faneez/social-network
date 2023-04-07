@@ -1,5 +1,5 @@
-const Users = require("../models/userModel")
-const jwt = require("jsonwebtoken")
+import Users from "../models/userModel.js"
+import jwt from "jsonwebtoken"
 
 const auth = async (req, res, next) => {
 	try {
@@ -21,4 +21,4 @@ const auth = async (req, res, next) => {
 		res.status(500).json({ msg: e.message })
 	}
 }
-module.exports = auth
+export default auth

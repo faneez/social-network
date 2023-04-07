@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import styles from "./userPofile.module.scss"
 import { useSelector } from "react-redux"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { getUser } from "../../store/slices/profileSlice"
 import { useDispatch } from "react-redux"
 import UserLoading from "./userLoading"
+import { postDataApi } from "../../utils/fetchDataApi"
 
 const UserProfile = ({ setHideToDo }) => {
 	const { auth, profile } = useSelector((state) => state)
 	const { id } = useParams()
 	const dispatch = useDispatch()
 	const [itsMe, setItsMe] = useState(false)
+	const imageRef = useRef()
+	const navigate = useNavigate()
 
 	useEffect(() => {
 		if (auth.user._id === id) {
@@ -23,6 +26,23 @@ const UserProfile = ({ setHideToDo }) => {
 			dispatch(getUser({ id, token: auth.token }))
 		}
 	}, [id])
+
+	const handlerImageUpload = async (e) => {
+		const formData = new FormData()
+		const file = e.target.files[0]
+		formData.append("image", file)
+		const res = await postDataApi("upload", formData)
+		const fileUrl = `http://localhost:5000${res.data.url}`
+		console.log(fileUrl)
+		const resAvatar = await postDataApi(
+			"avatar",
+			{ avatar: fileUrl },
+			auth.token
+		)
+		if (resAvatar.data.success) {
+			window.location.reload()
+		}
+	}
 
 	if (profile.loading) {
 		return <UserLoading />
@@ -43,18 +63,34 @@ const UserProfile = ({ setHideToDo }) => {
 						<div className={styles.userPosition}>{profile.user.position}</div>
 						<div className={styles.profileBtns}>
 							{itsMe ? (
-								<a href="#">Редактировать профиль</a>
+								<>
+									<span
+										className={styles.changePhoto}
+										onClick={() => {
+											imageRef.current.click()
+										}}
+									>
+										Обновить фотографию
+									</span>
+									<input
+										onChange={handlerImageUpload}
+										ref={imageRef}
+										type="file"
+										hidden
+										className=""
+									/>
+									<span>Редактировать профиль</span>
+								</>
 							) : (
 								<>
-									<a
+									{/* <a
 										href="#"
 										style={{
-											marginRight: "20px",
 											backgroundColor: "green",
 										}}
 									>
 										Добавить в друзья
-									</a>
+									</a> */}
 									<a href="#">Отправить сообщение</a>
 								</>
 							)}

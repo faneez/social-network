@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+import mongoose from "mongoose"
 
 const postGroupSchema = new mongoose.Schema(
 	{
@@ -19,6 +19,11 @@ const postGroupSchema = new mongoose.Schema(
 			type: Number,
 			default: 0,
 		},
+		group: {
+			type: String,
+			required: true,
+		},
+		comments: [{ type: mongoose.Types.ObjectId, ref: "comments", default: [] }],
 		user: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "user",
@@ -33,4 +38,4 @@ const postGroupSchema = new mongoose.Schema(
 	}
 )
 
-module.exports = mongoose.model("postGroup", postGroupSchema)
+export default mongoose.model("postGroup", postGroupSchema)

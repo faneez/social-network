@@ -1,12 +1,33 @@
-const PostModel = require("../models/postModel")
+import PostModel from "../models/postModel.js"
 
 const postCntrl = {
+	getLastTags: async (req, res) => {
+		try {
+			const posts = await PostModel.find()
+				.sort({ createdAt: -1 })
+				.limit(5)
+				.exec()
+
+			const tags = posts
+				.map((obj) => obj.tags)
+				.flat()
+				.slice(0, 5)
+			return res.json(tags)
+		} catch (err) {
+			res.status(500).json({
+				message: "Не удалось получить статьи",
+			})
+		}
+	},
+
 	getAll: async (req, res) => {
 		try {
-			const posts = await PostModel.find().populate("user").exec()
+			const posts = await PostModel.find()
+				.sort({ createdAt: -1 })
+				.populate("user")
+				.exec()
 			res.json(posts)
 		} catch (err) {
-			console.log(err)
 			res.status(500).json({
 				message: "Не удалось получить статьи",
 			})
@@ -17,33 +38,17 @@ const postCntrl = {
 		try {
 			const postId = req.params.id
 
-			PostModel.findOneAndUpdate(
-				{
-					_id: postId,
-				},
+			const post = await PostModel.findByIdAndUpdate(
+				postId,
 				{
 					$inc: { viewsCount: 1 },
 				},
 				{
 					returnDocument: "after",
-				},
-				(err, doc) => {
-					if (err) {
-						console.log(err)
-						return res.status(500).json({
-							message: "Не удалось вернуть статью",
-						})
-					}
-
-					if (!doc) {
-						return res.status(404).json({
-							message: "Статья не найдена",
-						})
-					}
-
-					res.json(doc)
 				}
 			).populate("user")
+
+			res.json(post)
 		} catch (err) {
 			console.log(err)
 			res.status(500).json({
@@ -55,30 +60,15 @@ const postCntrl = {
 	remove: async (req, res) => {
 		try {
 			const postId = req.params.id
+			console.log(postId)
 
-			PostModel.findOneAndDelete(
-				{
-					_id: postId,
-				},
-				(err, doc) => {
-					if (err) {
-						console.log(err)
-						return res.status(500).json({
-							message: "Не удалось удалить статью",
-						})
-					}
+			const post = await PostModel.findOneAndDelete(postId)
 
-					if (!doc) {
-						return res.status(404).json({
-							message: "Статья не найдена",
-						})
-					}
+			if (!post) return res.json({ message: "Не удалось удалить статью!" })
 
-					res.json({
-						success: true,
-					})
-				}
-			)
+			const posts = await PostModel.find().populate("user")
+
+			return res.json(posts)
 		} catch (err) {
 			console.log(err)
 			res.status(500).json({
@@ -94,7 +84,7 @@ const postCntrl = {
 				text: req.body.text,
 				imageUrl: req.body.imageUrl,
 				tags: req.body.tags.split(","),
-				user: req.userId,
+				user: req.user._id,
 			})
 
 			const post = await doc.save()
@@ -136,4 +126,4 @@ const postCntrl = {
 	},
 }
 
-module.exports = postCntrl
+export default postCntrl

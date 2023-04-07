@@ -1,9 +1,12 @@
-const router = require("express").Router()
-const postCreateValidation = require("../validations.js")
-const postCntrl = require("../controllers/postController.js")
-const auth = require("../middlewares/auth.js")
-const handleValidationErrors = require("../utils/handleValidationErrors.js")
+import express from "express"
+import postCreateValidation from "../validations.js"
+import postCntrl from "../controllers/postController.js"
+import auth from "../middlewares/auth.js"
+import handleValidationErrors from "../utils/handleValidationErrors.js"
 
+const router = express.Router()
+
+router.get("/tags", auth, postCntrl.getLastTags)
 router.get("/posts", auth, postCntrl.getAll)
 router.get("/posts/:id", auth, postCntrl.getOne)
 router.post(
@@ -21,4 +24,4 @@ router.patch(
 	handleValidationErrors,
 	postCntrl.update
 )
-module.exports = router
+export default router

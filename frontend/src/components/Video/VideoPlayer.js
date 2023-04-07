@@ -18,7 +18,7 @@ const VideoPlayer = ({ video }) => {
 			controls={["PlayPause", "Seek", "Time", "Volume", "Fullscreen"]}
 		>
 			<source
-				src={"http://localhost:5000/videos/python.webm"}
+				src={"http://localhost:5000/uploads/python.webm"}
 				type="video/webm"
 			/>
 		</Video>

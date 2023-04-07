@@ -3,7 +3,7 @@ import Home from "./pages/Home/Home"
 import { Routes, Route } from "react-router-dom"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
-import Post from "./pages/Post"
+
 import NotFound from "./pages/NotFound"
 import Alert from "./components/Alert/AlertUI.js"
 import Group from "./pages/Group/Group"
@@ -17,6 +17,9 @@ import Video from "./pages/Video/Video"
 import TestsPage from "./pages/Tests/TestsPage"
 import TestPage from "./pages/Test/TestPage"
 import UsersPage from "./pages/Users/UsersPage"
+import PostPage from "./pages/PostPage/PostPage"
+import AddPost from "./pages/AddPost"
+import RatingPage from "./pages/RatingPage/RatingPage"
 
 import { useSelector } from "react-redux"
 import Loading from "./components/Loading/Loading"
@@ -41,6 +44,14 @@ function App() {
 					<Routes>
 						<Route path="/" element={auth.token ? <Home /> : <Login />} />
 						<Route path="/loading" element={<Loading />} />
+						<Route
+							path="/posts/:id"
+							element={auth.token ? <PostPage /> : <Login />}
+						/>
+						<Route
+							path="/add-post/:par"
+							element={auth.token ? <AddPost /> : <Login />}
+						/>
 						<Route
 							path="/videos"
 							element={auth.token ? <Videos /> : <Login />}
@@ -69,12 +80,15 @@ function App() {
 							path="/group/:id"
 							element={auth.token ? <Group /> : <Login />}
 						/>
+						<Route
+							path="/rating"
+							element={auth.token ? <RatingPage /> : <Login />}
+						/>
 						<Route path="/home" element={<Home />} />
 						<Route
 							path="/user/:id"
 							element={auth.token ? <Profile /> : <Login />}
 						/>
-						<Route path="/post/:id" element={<Post />} />
 						<Route path="/register" element={<Register />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="*" element={<NotFound />} />

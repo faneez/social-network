@@ -1,4 +1,4 @@
-const Videos = require("../models/videoModel.js")
+import Videos from "../models/videoModel.js"
 
 const videoCntrl = {
 	async getAll(req, res) {
@@ -29,4 +29,4 @@ const videoCntrl = {
 		}
 	},
 }
-module.exports = videoCntrl
+export default videoCntrl

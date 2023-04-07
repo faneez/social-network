@@ -1,6 +1,18 @@
-const Users = require("../models/userModel.js")
+import Users from "../models/userModel.js"
 // $or: [{ name: search }, { surname: search }],
 const userCntrl = {
+	getSortedByRtng: async (req, res) => {
+		try {
+			const users = await Users.find({ position: "Ученик" })
+				.sort({ rating: -1 })
+				.limit(10)
+				.exec()
+			console.log(users)
+			return res.json(users)
+		} catch (err) {
+			console.log(err)
+		}
+	},
 	getOne: async (req, res) => {
 		try {
 			const id = req.params.id
@@ -14,6 +26,21 @@ const userCntrl = {
 			res.json(user)
 		} catch (e) {
 			res.status(500).json({ msg: "Что-то не так с запросом" })
+		}
+	},
+	updateAvatar: async (req, res) => {
+		try {
+			const avatar = req.body.avatar
+			const user = await Users.findByIdAndUpdate(
+				req.user._id,
+				{ avatar },
+				{ returnDocument: "after" }
+			)
+			if (!user)
+				return res.status(400).json({ msg: "Не удалось обновить аватар" })
+			return res.json({ success: true })
+		} catch (err) {
+			return res.json({ msg: err })
 		}
 	},
 	getAll: async (req, res) => {
@@ -45,4 +72,4 @@ const userCntrl = {
 		}
 	},
 }
-module.exports = userCntrl
+export default userCntrl

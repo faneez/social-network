@@ -20,10 +20,10 @@ const Leftbar = ({ bg, color }) => {
 					<img src={profileImage} className={styles.icon} alt="Мой профиль" />
 					<li className={styles.item}>Мой профиль</li> {/* Мой профиль*/}
 				</Link>
-				<a href="#">
+				<Link to="/home">
 					<img src={newsImage} className={styles.icon} alt="публикации" />
 					<li className={styles.item}>Публикации</li> {/* Посты*/}
-				</a>
+				</Link>
 				<a href="#">
 					<img src={chatsImage} className={styles.icon} alt="чат" />
 					<li className={styles.item}>Чаты</li> {/* чаты*/}
@@ -44,10 +44,10 @@ const Leftbar = ({ bg, color }) => {
 					<img src={testImage} className={styles.icon} alt="" />
 					<li className={styles.item}>Тесты</li> {/* тесты */}
 				</Link>
-				<a href="#">
+				<Link to="/rating">
 					<img src={ratingImage} className={styles.icon} alt="" />
-					<li className={styles.item}>Рейтинг</li> {/* рейтинг */}
-				</a>
+					<li className={styles.item}>Общий рейтинг</li> {/* рейтинг */}
+				</Link>
 			</ul>
 			<hr />
 		</div>

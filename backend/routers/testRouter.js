@@ -1,8 +1,8 @@
-const router = require("express").Router()
-const testCntrl = require("../controllers/testController.js")
-const auth = require("../middlewares/auth.js")
-
+import express from "express"
+import testCntrl from "../controllers/testController.js"
+import auth from "../middlewares/auth.js"
+const router = express.Router()
 router.get("/tests", auth, testCntrl.getAll)
 router.get("/tests/:id", auth, testCntrl.getOne)
 
-module.exports = router
+export default router

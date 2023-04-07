@@ -1,8 +1,8 @@
-const router = require("express").Router()
-const groupCntrl = require("../controllers/groupController")
-const auth = require("../middlewares/auth.js")
-
+import express from "express"
+import groupCntrl from "../controllers/groupController.js"
+import auth from "../middlewares/auth.js"
+const router = express.Router()
 router.get("/groups", auth, groupCntrl.getAll)
-router.get("/groups/:id")
+router.get("/groups/:id", auth, groupCntrl.getOne)
 
-module.exports = router
+export default router

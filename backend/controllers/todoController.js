@@ -1,5 +1,5 @@
-const Users = require("../models/userModel.js")
-const Todos = require("../models/todoModel.js")
+import Users from "../models/userModel.js"
+import Todos from "../models/todoModel.js"
 
 const todoCntrl = {
 	async addOne(req, res) {
@@ -66,4 +66,4 @@ const todoCntrl = {
 	},
 }
 
-module.exports = todoCntrl
+export default todoCntrl

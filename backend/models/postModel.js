@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+import mongoose, { mongo } from "mongoose"
 
 const postSchema = new mongoose.Schema(
 	{
@@ -24,8 +24,10 @@ const postSchema = new mongoose.Schema(
 			ref: "user",
 			required: true,
 		},
+		comments: [{ type: mongoose.Types.ObjectId, ref: "comments", default: [] }],
 		imageUrl: {
 			type: String,
+			default: "",
 		},
 	},
 	{
@@ -33,4 +35,4 @@ const postSchema = new mongoose.Schema(
 	}
 )
 
-module.exports = mongoose.model("post", postSchema)
+export default mongoose.model("post", postSchema)

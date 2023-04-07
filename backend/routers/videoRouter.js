@@ -1,8 +1,9 @@
-const router = require("express").Router()
-const videoCntrl = require("../controllers/videoController.js")
-const auth = require("../middlewares/auth.js")
+import express from "express"
+import videoCntrl from "../controllers/videoController.js"
+import auth from "../middlewares/auth.js"
+const router = express.Router()
 
 router.get("/videos", auth, videoCntrl.getAll)
 router.get("/videos/:id", auth, videoCntrl.getOne)
 
-module.exports = router
+export default router

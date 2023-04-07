@@ -1,9 +1,12 @@
-const router = require("express").Router()
-const auth = require("../middlewares/auth.js")
+import express from "express"
+import auth from "../middlewares/auth.js"
 
-const userCntrl = require("../controllers/userController.js")
+import userCntrl from "../controllers/userController.js"
 
+const router = express.Router()
 router.get("/users/:id", auth, userCntrl.getOne)
 router.get("/users", auth, userCntrl.getAll)
+router.get("/rating", auth, userCntrl.getSortedByRtng)
+router.post("/avatar", auth, userCntrl.updateAvatar)
 
-module.exports = router
+export default router

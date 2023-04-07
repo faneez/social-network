@@ -16,27 +16,34 @@
 .userImage {
 	width: 100px;
 	height: 100px;
-	border-radius: 100%;
+	border-radius: 30%;
 	margin: 10px;
 }
 .userFullname {
 	font-size: 20px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 .userPosition {
-	margin-bottom: 30px;
+	margin-bottom: 15px;
 }
 .profileBtns {
 	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
-.profileBtns a {
+.profileBtns span {
 	text-decoration: none;
+	cursor: pointer;
 	margin-top: 10px;
-	padding: 5px;
-	margin-bottom: 20px;
-	background-color: #007aff;
+	padding: 15px;
+	margin-bottom: 5px;
+	background-color: #328ef0;
 	color: #fff;
 	border-radius: 5px;
+	transition: 0.3s all ease-in;
+	&:hover {
+		background-color: blue;
+	}
 }
 
 .userContacts {

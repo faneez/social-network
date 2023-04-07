@@ -1,19 +1,21 @@
-require("dotenv").config()
-const express = require("express")
-const mongoose = require("mongoose")
-const cors = require("cors")
-const bcrypt = require("bcrypt")
-const auth = require("./middlewares/auth.js")
-const multer = require("multer")
-const cookieparser = require("cookie-parser")
-const authRouter = require("./routers/authRouter.js")
-const userRouter = require("./routers/userRouter.js")
-const groupRouter = require("./routers/groupRouter.js")
-const todoRouter = require("./routers/todoRouter.js")
-const videoRouter = require("./routers/videoRouter.js")
-const testRouter = require("./routers/testRouter.js")
-const postRouter = require("./routers/postRouter.js")
+import dotenv from "dotenv"
+import express from "express"
+import mongoose from "mongoose"
+import cors from "cors"
+import bcrypt from "bcrypt"
+import auth from "./middlewares/auth.js"
+import multer from "multer"
+import cookieparser from "cookie-parser"
+import authRouter from "./routers/authRouter.js"
+import userRouter from "./routers/userRouter.js"
+import groupRouter from "./routers/groupRouter.js"
+import todoRouter from "./routers/todoRouter.js"
+import videoRouter from "./routers/videoRouter.js"
+import testRouter from "./routers/testRouter.js"
+import postRouter from "./routers/postRouter.js"
+import groupPostRouter from "./routers/groupPostRouter.js"
 
+dotenv.config()
 const app = express()
 const storage = multer.diskStorage({
 	destination: (_, __, cb) => {
@@ -42,6 +44,7 @@ app.use("/api", todoRouter)
 app.use("/api", videoRouter)
 app.use("/api", testRouter)
 app.use("/api", postRouter)
+app.use("/api", groupPostRouter)
 
 const port = process.env.PORT || 5000
 const URL = process.env.DB_URL

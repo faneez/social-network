@@ -1,11 +1,11 @@
-const router = require("express").Router()
-const todoCntrl = require("../controllers/todoController.js")
-const auth = require("../middlewares/auth.js")
-
+import express from "express"
+import todoCntrl from "../controllers/todoController.js"
+import auth from "../middlewares/auth.js"
+const router = express.Router()
 router.post("/todos", auth, todoCntrl.addOne)
 router.get("/todos", auth, todoCntrl.getTodos)
 router.delete("/todos/:id", auth, todoCntrl.deleteOne)
 router.patch("/todos", auth, todoCntrl.updateOne)
 router.patch("/todos/:id", auth, todoCntrl.changeStatus)
 
-module.exports = router
+export default router

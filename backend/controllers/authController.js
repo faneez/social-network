@@ -1,7 +1,7 @@
-const Users = require("../models/userModel.js")
-const Roles = require("../models/roleModel.js")
-const bcrypt = require("bcrypt")
-const jwt = require("jsonwebtoken")
+import Users from "../models/userModel.js"
+import Roles from "../models/roleModel.js"
+import bcrypt from "bcrypt"
+import jwt from "jsonwebtoken"
 
 const authCntrl = {
 	register: async (req, res) => {
@@ -142,4 +142,4 @@ const createRefreshToken = (id, roles) => {
 
 	return jwt.sign(payload, process.env.refreshToken, { expiresIn: "30d" })
 }
-module.exports = authCntrl
+export default authCntrl

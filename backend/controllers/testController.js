@@ -1,4 +1,4 @@
-const Tests = require("../models/testModel.js")
+import Tests from "../models/testModel.js"
 
 const testCntrl = {
 	getOne: async (req, res) => {
@@ -20,4 +20,4 @@ const testCntrl = {
 	},
 }
 
-module.exports = testCntrl
+export default testCntrl
