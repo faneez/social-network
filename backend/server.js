@@ -1,6 +1,7 @@
 import dotenv from "dotenv"
 import express from "express"
 import mongoose from "mongoose"
+import { Server } from "socket.io"
 import cors from "cors"
 import bcrypt from "bcrypt"
 import auth from "./middlewares/auth.js"
@@ -14,6 +15,7 @@ import videoRouter from "./routers/videoRouter.js"
 import testRouter from "./routers/testRouter.js"
 import postRouter from "./routers/postRouter.js"
 import groupPostRouter from "./routers/groupPostRouter.js"
+import messageRouter from "./routers/messageRouter.js"
 
 dotenv.config()
 const app = express()
@@ -45,19 +47,36 @@ app.use("/api", videoRouter)
 app.use("/api", testRouter)
 app.use("/api", postRouter)
 app.use("/api", groupPostRouter)
+app.use("/api", messageRouter)
 
 const port = process.env.PORT || 5000
+const IS_PROD = process.env.NODE_ENV === "production"
+const socket_URL = IS_PROD ? "yoursite.herokuapp.com" : "http://localhost:5000"
 const URL = process.env.DB_URL
 
-async function startApp() {
-	try {
-		await mongoose.connect(URL)
-		app.listen(port, () => {
-			console.log("Сервер запущен!")
-		})
-	} catch (e) {
-		console.log(e)
-	}
-}
+await mongoose.connect(URL)
+const server = app.listen(port, () => {
+	console.log("Сервер запущен!")
+})
 
-startApp()
+const io = new Server(server, {
+	cors: {
+		origin: ["http://localhost:3000", "yoursite.herokuapp.com"],
+		credentials: true,
+	},
+})
+global.onlineUsers = new Map()
+io.on("connection", (socket) => {
+	console.log("пользователь подключился")
+	global.chatsocket = socket
+	socket.on("addUser", (id) => {
+		onlineUsers.set(id, socket.id)
+	})
+
+	socket.on("send-msg", (data) => {
+		const sendUserSocket = onlineUsers.get(data.to)
+		if (sendUserSocket) {
+			socket.to(sendUserSocket).emit("msg-receive", data.message)
+		}
+	})
+})

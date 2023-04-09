@@ -24,10 +24,10 @@ const Leftbar = ({ bg, color }) => {
 					<img src={newsImage} className={styles.icon} alt="публикации" />
 					<li className={styles.item}>Публикации</li> {/* Посты*/}
 				</Link>
-				<a href="#">
+				<Link to="/chat">
 					<img src={chatsImage} className={styles.icon} alt="чат" />
 					<li className={styles.item}>Чаты</li> {/* чаты*/}
-				</a>
+				</Link>
 				<Link to="/users">
 					<img src={friendsImage} className={styles.icon} alt="" />
 					<li className={styles.item}>Пользователи</li> {/* Мои друзья*/}

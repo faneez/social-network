@@ -1,0 +1,154 @@
+.message {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.message-container {
+	max-width: 95%;
+	margin: auto;
+	display: flex;
+	align-items: flex-start;
+}
+.home-link {
+	color: black;
+}
+.conversation-block {
+	flex: 1.3;
+	margin-top: 50px;
+	margin-right: 100px;
+	padding: 15px;
+	background-color: rgb(109, 108, 108);
+	input {
+		margin-bottom: 20px;
+		width: 100%;
+		padding: 10px 15px;
+		border-radius: 3px;
+		&::placeholder {
+			color: black;
+		}
+	}
+}
+.message-block {
+	flex: 3;
+
+	border-left: 2px solid rgba(20, 20, 20, 0.5);
+	align-self: stretch;
+	height: calc(100vh - 64px);
+	position: relative;
+	margin-bottom: 20px;
+	padding-bottom: 60px;
+
+	&__user-info {
+		display: flex;
+		padding: 10px;
+		align-items: center;
+		border: 1px solid black;
+		border-radius: 3px;
+		margin-bottom: 20px;
+		padding-left: 15px;
+	}
+	.avatar-profile {
+		width: 45px;
+		height: 45px;
+		border-radius: 100%;
+		margin-right: 15px;
+	}
+	input {
+		position: absolute;
+		bottom: 10px;
+		left: 30px;
+		width: 50%;
+		padding: 10px;
+	}
+	button {
+		position: absolute;
+		right: 40px;
+		bottom: 10px;
+		width: 15%;
+		padding: 10px;
+	}
+	&__form {
+		button {
+			transform: translateX(1000px);
+			transition: 0.3s all ease-in-out;
+			&.active {
+				transform: translateX(-50px);
+			}
+		}
+	}
+	&-messages {
+		&__item {
+			display: flex;
+			margin-left: 15px;
+			align-items: center;
+			border-radius: 5px;
+			padding: 10px;
+			color: black;
+			p {
+			}
+		}
+	}
+}
+.conversation-block-items-container {
+	height: 60vh;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+.conversation-block-item {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	color: white;
+	border-radius: 10px;
+	box-sizing: content-box;
+	background-color: rgb(54, 51, 51);
+
+	padding: 5px;
+	border: 1px solid black;
+	margin-bottom: 10px;
+	margin-right: 15px;
+	&__avatar {
+		margin-right: 15px;
+		margin-left: 10px;
+		width: 50px;
+		height: 50px;
+		border-radius: 100%;
+	}
+}
+.chat-user-profile {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+
+.message-block-messages-item-from {
+	max-width: 40%;
+	margin-bottom: 15px;
+
+	background-color: rgb(221, 213, 213);
+	&__message {
+		word-break: break-all;
+	}
+	img {
+		margin-right: 15px;
+	}
+}
+.message-block-messages-item-to {
+	background-color: #82def1;
+	max-width: 40%;
+	margin-bottom: 15px;
+	margin-left: auto;
+	margin-right: 15px;
+	&__message {
+		word-break: break-all;
+	}
+	img {
+		margin-left: 15px;
+	}
+}
+
+.msgContainer {
+	height: 70vh;
+	overflow: hidden;
+	overflow-y: scroll;
+}

@@ -3,6 +3,7 @@ import Home from "./pages/Home/Home"
 import { Routes, Route } from "react-router-dom"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
+import { useLocation } from "react-router-dom"
 
 import NotFound from "./pages/NotFound"
 import Alert from "./components/Alert/AlertUI.js"
@@ -20,6 +21,7 @@ import UsersPage from "./pages/Users/UsersPage"
 import PostPage from "./pages/PostPage/PostPage"
 import AddPost from "./pages/AddPost"
 import RatingPage from "./pages/RatingPage/RatingPage"
+import MessagePage from "./pages/MessagePage/MessagePage"
 
 import { useSelector } from "react-redux"
 import Loading from "./components/Loading/Loading"
@@ -27,6 +29,7 @@ import Profile from "./pages/Profile/Profile"
 import Leftbar from "./components/LefttsideContainer/Leftbar"
 
 function App() {
+	const location = useLocation()
 	const dispatch = useDispatch()
 	const { alert, auth } = useSelector((state) => state)
 	useEffect(() => {
@@ -39,7 +42,7 @@ function App() {
 			{alert ? <Alert /> : ""}
 
 			<div style={{ display: "flex" }}>
-				{auth.token ? <Leftbar /> : ""}
+				{auth.token && !location.pathname.includes("/chat") ? <Leftbar /> : ""}
 				<div className="main-content">
 					<Routes>
 						<Route path="/" element={auth.token ? <Home /> : <Login />} />
@@ -52,6 +55,11 @@ function App() {
 							path="/add-post/:par"
 							element={auth.token ? <AddPost /> : <Login />}
 						/>
+						<Route
+							path="/chat"
+							element={auth.token ? <MessagePage /> : <Login />}
+						/>
+
 						<Route
 							path="/videos"
 							element={auth.token ? <Videos /> : <Login />}

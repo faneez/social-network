@@ -42,7 +42,9 @@ const Navbar = () => {
 					className={styles.icons}
 				/>
 
-				<img src={Message} alt="message icon" className={styles.icons} />
+				<Link to="/chat">
+					<img src={Message} alt="message icon" className={styles.icons} />
+				</Link>
 				<div className={styles.profileContainer}>
 					<Link to={`/user/${auth.user._id}`}>
 						<img
